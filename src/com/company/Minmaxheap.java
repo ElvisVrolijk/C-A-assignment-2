@@ -49,6 +49,7 @@ public class Minmaxheap {
         this.queueArray = queueArray;
     }
 
+
     public boolean isEmpty() {
         return queueArray.size() < 1;
     }
@@ -82,6 +83,10 @@ public class Minmaxheap {
         return queueArray;
     }
 
+    /**
+     * @param i is used to calculate the level (min or max)
+     * @return level (0 = min , 1 = max)
+     */
     private int getLevel(int i) {
         return (int) (Math.log(i + 1) / Math.log(2)) % 2;
     }
@@ -120,7 +125,9 @@ public class Minmaxheap {
     }
 
 
-
+    /**
+     * @param childPosition is used to get and add child to map
+     */
     private void addChildToMap(int childPosition) {
         if (childPosition <= queueArray.size() - 1) {
             int child = queueArray.get(childPosition);
@@ -128,6 +135,9 @@ public class Minmaxheap {
         }
     }
 
+    /**
+     * @param grandChildPosition is used to get and add grand child to map
+     */
     private void addGrandChildToMap(int grandChildPosition) {
         if (grandChildPosition <= queueArray.size() - 1) {
             int grandChild = queueArray.get(grandChildPosition);
@@ -135,6 +145,10 @@ public class Minmaxheap {
         }
     }
 
+    /**
+     *
+     * @param nodePosition is used to look for nodes children
+     */
     private void lookForChildren(int nodePosition) {
         children.clear();
 
@@ -146,6 +160,9 @@ public class Minmaxheap {
         addChildToMap(child2Position);
     }
 
+    /**
+     * @return smallest child position
+     */
     private int minChildPosition() {
         int minPosition = -10;
         for (Map.Entry map : children.entrySet()) {
@@ -159,6 +176,9 @@ public class Minmaxheap {
         return minPosition;
     }
 
+    /**
+     * look for the smallest child
+     */
     private void findSmallestChild() {
         lookForChildren(nodePosition);
 
@@ -171,6 +191,9 @@ public class Minmaxheap {
         }
     }
 
+    /**
+     * @return biggest child position
+     */
     private int maxChildPosition() {
         int maxPosition = -10;
         for (Map.Entry map : children.entrySet()) {
@@ -184,6 +207,9 @@ public class Minmaxheap {
         return maxPosition;
     }
 
+    /**
+     * look for biggest child
+     */
     private void findBiggestChild() {
         lookForChildren(nodePosition);
 
@@ -196,6 +222,9 @@ public class Minmaxheap {
         }
     }
 
+    /**
+     * @param nodePosition is used to look for grand children
+     */
     private void lookForGrandChildren(int nodePosition) {
         grandChildren.clear();
 
@@ -215,6 +244,9 @@ public class Minmaxheap {
         addGrandChildToMap(grandChild4Position);
     }
 
+    /**
+     * @return smallest grand child position
+     */
     private int minGrandChildPosition() {
         int minPosition = -10;
         for (Map.Entry map : grandChildren.entrySet()) {
@@ -228,6 +260,9 @@ public class Minmaxheap {
         return minPosition;
     }
 
+    /**
+     * look for the smallest grand child
+     */
     private void findSmallestGrandChild() {
         lookForGrandChildren(nodePosition);
 
@@ -241,7 +276,9 @@ public class Minmaxheap {
             hasGrandChild = false;
         }
     }
-
+    /**
+     * look for the biggest grand child position
+     */
     private int maxGrandChildPosition() {
         int maxPosition = -10;
         for (Map.Entry map : grandChildren.entrySet()) {
@@ -255,6 +292,9 @@ public class Minmaxheap {
         return maxPosition;
     }
 
+    /**
+     * look for the biggest grand child
+     */
     private void findBiggestGrandChild() {
         lookForGrandChildren(nodePosition);
 
@@ -268,6 +308,9 @@ public class Minmaxheap {
         }
     }
 
+    /**
+     * delete and reorder the heap
+     */
 
     public void delete(int number) {
         boolean numberExists = false;
@@ -361,6 +404,9 @@ public class Minmaxheap {
         }
     }
 
+    /**
+     * prioritize list when number is inserted or when a list is inserted
+     */
 
     public void prioritize() {
         for (int i = 0; i < queueArray.size(); i++) {
@@ -489,6 +535,10 @@ public class Minmaxheap {
             findBiggestGrandChild();
         }
     }
+
+    ////////////////////////////////////////////////////////////////
+    /// Helper methods for swapping positions
+    ////////////////////////////////////////////////////////////////
 
     private void swapNodeWithParent() {
         swap(queueArray, nodePosition, parentPosition);
