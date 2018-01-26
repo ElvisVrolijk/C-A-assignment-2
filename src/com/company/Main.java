@@ -43,9 +43,15 @@ public class Main {
                     }
                     break;
                 case 4:
-                    test();
+                    removeMin();
                     break;
                 case 5:
+                    removeMax();
+                    break;
+                case 6:
+                    test();
+                    break;
+                case 7:
                     exit = true;
                     break;
                 default:
@@ -54,6 +60,39 @@ public class Main {
             }
         }
 
+    }
+
+    private void removeMax() {
+        System.out.println("Current Min Max Heap:  ");
+        for (Integer integer : userHeap.getQueueArray()) {
+            System.out.print(integer + " ");
+        }
+
+        System.out.println("");
+        System.out.println("Removing Max: " + userHeap.getMax());
+        userHeap.removeMax();
+
+        System.out.println("New Min Max Heap: ");
+        for (Integer integer : userHeap.getQueueArray()) {
+            System.out.print(integer + " ");
+        }
+
+    }
+
+    private void removeMin() {
+        System.out.println("Current Min Max Heap:  ");
+        for (Integer integer : userHeap.getQueueArray()) {
+            System.out.print(integer + " ");
+        }
+
+        System.out.println("");
+        System.out.println("Removing Min: " + userHeap.getMin());
+        userHeap.removeMin();
+
+        System.out.println("New Min Max Heap: ");
+        for (Integer integer : userHeap.getQueueArray()) {
+            System.out.print(integer + " ");
+        }
     }
 
     /**
@@ -66,8 +105,10 @@ public class Main {
         System.out.println("1. Make a list and create a Min Max Heap.");
         System.out.println("2. Insert number. (must create a list first: option 1)");
         System.out.println("3. Delete number. (must create a list first: option 1)");
-        System.out.println("4. Run example.");
-        System.out.println("5. Exit program.");
+        System.out.println("4. Remove Min. (must create a list first: option 1)");
+        System.out.println("5. Remove Max. (must create a list first: option 1)");
+        System.out.println("6. Run example.");
+        System.out.println("7. Exit program.");
 
     }
 
