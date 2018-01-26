@@ -101,6 +101,12 @@ public class Main {
         for (Integer integer : userHeap.getQueueArray()) {
             System.out.print(integer + " ");
         }
+
+        System.out.println("");
+
+        System.out.println("Get min: " + userHeap.getMin());
+
+        System.out.println("Get max: " + userHeap.getMax());
     }
 
     /**
@@ -177,6 +183,12 @@ public class Main {
         }
 
         System.out.println("");
+
+        System.out.println("Get min: " + minmaxheap.getMin());
+
+        System.out.println("Get max: " + minmaxheap.getMax());
+
+        System.out.println("");
         System.out.println("Deleting: ");
         System.out.println("1 5 45 18");
         minmaxheap.delete(1);
@@ -188,6 +200,8 @@ public class Main {
         for (Integer integer : minmaxheap.getQueueArray()) {
             System.out.print(integer + " ");
         }
+
+
     }
 
 

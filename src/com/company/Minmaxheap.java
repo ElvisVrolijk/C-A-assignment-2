@@ -59,11 +59,19 @@ public class Minmaxheap {
     }
 
     public int getMin() {
-        return queueArray.get(queueArray.size() - 1);
+        //make sure the array is prioritized
+        prioritize();
+        return queueArray.get(0);
     }
 
     public int getMax() {
-        return queueArray.get(0);
+        //make sure the array is prioritized
+        prioritize();
+        if (queueArray.get(1) > queueArray.get(2)) {
+            return queueArray.get(1);
+        } else {
+            return queueArray.get(2);
+        }
     }
 
     public void insert(int x) {
@@ -72,11 +80,11 @@ public class Minmaxheap {
     }
 
     public void removeMin() {
-        queueArray.remove(queueArray.size() - 1);
+        delete(getMin());
     }
 
     public void removeMax() {
-        queueArray.remove(0);
+        delete(getMax());
     }
 
     public List<Integer> getQueueArray() {
