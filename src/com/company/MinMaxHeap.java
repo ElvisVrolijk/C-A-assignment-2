@@ -1,6 +1,5 @@
 package com.company;
 
-import sun.plugin2.os.windows.FLASHWINFO;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.Map;
 
 import static java.util.Collections.swap;
 
-public class Minmaxheap {
+public class MinMaxHeap {
     private List<Integer> queueArray;
 
     // Node
@@ -45,7 +44,7 @@ public class Minmaxheap {
 
     private boolean swapped = false;
 
-    public Minmaxheap(List<Integer> queueArray) {
+    public MinMaxHeap(List<Integer> queueArray) {
         this.queueArray = queueArray;
     }
 
@@ -59,13 +58,11 @@ public class Minmaxheap {
     }
 
     public int getMin() {
-        //make sure the array is prioritized
         prioritize();
         return queueArray.get(0);
     }
 
     public int getMax() {
-        //make sure the array is prioritized
         prioritize();
         if (queueArray.get(1) > queueArray.get(2)) {
             return queueArray.get(1);

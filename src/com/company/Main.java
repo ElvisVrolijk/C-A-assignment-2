@@ -8,7 +8,7 @@ public class Main {
 
     private Scanner sc = new Scanner(System.in);
 
-    private Minmaxheap userHeap;
+    private MinMaxHeap userHeap;
 
     public static void main(String[] args) {
         // write your code here
@@ -134,7 +134,7 @@ public class Main {
             System.out.print(integer + " ");
         }
 
-        userHeap = new Minmaxheap(list);
+        userHeap = new MinMaxHeap(list);
         userHeap.prioritize();
 
         System.out.println("");
@@ -151,7 +151,7 @@ public class Main {
     }
 
     /**
-     * insert entered number
+     * add entered number
      */
 
     private void insert() {
@@ -215,30 +215,30 @@ public class Main {
             System.out.print(integer + " ");
         }
 
-        Minmaxheap minmaxheap = new Minmaxheap(list);
-        minmaxheap.prioritize();
+        MinMaxHeap minMaxHeap = new MinMaxHeap(list);
+        minMaxHeap.prioritize();
         System.out.println("");
         System.out.println("Min Max Heap: ");
-        for (Integer integer : minmaxheap.getQueueArray()) {
+        for (Integer integer : minMaxHeap.getQueueArray()) {
             System.out.print(integer + " ");
         }
 
         System.out.println("");
 
-        System.out.println("Get min: " + minmaxheap.getMin());
+        System.out.println("Get min: " + minMaxHeap.getMin());
 
-        System.out.println("Get max: " + minmaxheap.getMax());
+        System.out.println("Get max: " + minMaxHeap.getMax());
 
         System.out.println("");
         System.out.println("Deleting: ");
         System.out.println("1 5 45 18");
-        minmaxheap.delete(1);
-        minmaxheap.delete(5);
-        minmaxheap.delete(45);
-        minmaxheap.delete(18);
+        minMaxHeap.delete(1);
+        minMaxHeap.delete(5);
+        minMaxHeap.delete(45);
+        minMaxHeap.delete(18);
 
         System.out.println("New Min Max Heap: ");
-        for (Integer integer : minmaxheap.getQueueArray()) {
+        for (Integer integer : minMaxHeap.getQueueArray()) {
             System.out.print(integer + " ");
         }
 
