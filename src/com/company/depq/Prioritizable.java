@@ -1,6 +1,5 @@
 package com.company.depq;
 
-public interface Prioritazable {
-    
+public interface Prioritizable {
     void prioritize();
 }

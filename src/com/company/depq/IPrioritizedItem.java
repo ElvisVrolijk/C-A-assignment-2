@@ -1,4 +1,6 @@
 package com.company.depq;
 
-public interface PrioritizedIteam {
+public interface IPrioritizedItem {
+    int getPriority();
+    void setPriority(int priority);
 }

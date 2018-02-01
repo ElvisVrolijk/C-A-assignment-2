@@ -1,11 +1,11 @@
 package com.company.depq;
 
-public abstract class MinMaxHeapNode<T> implements IPrioritizedItem{
+public class DEPQItem<T> implements IPrioritizedItem{
 
     private int priority;
     private T value;
 
-    public MinMaxHeapNode(int priority, T value) {
+    public DEPQItem(int priority, T value) {
         this.priority = priority;
         this.value = value;
     }
